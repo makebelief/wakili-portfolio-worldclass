@@ -6,7 +6,8 @@
   <meta name="theme-color" content="#fffdf7" />
   <meta name="description" content="Selected website and digital product work by Wakili wa Tech." />
   <title>Wakili wa Tech — Portfolio</title>
-  <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="https://www.wakiliwatech.co.ke/favicon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="https://www.wakiliwatech.co.ke/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -80,10 +81,12 @@
     .shot-wrap{position:absolute;inset:36px 0 0;background:linear-gradient(145deg,#f1eaff,#eaf8ff 45%,#fff4c9)}
     .shot{width:100%;height:100%;object-fit:cover;object-position:top center;transition:transform .5s ease,opacity .25s ease;background:#f2f0ec}
     .project-card:hover .shot{transform:scale(1.015)}
-    .preview-fallback{position:absolute;inset:0;padding:30px;display:grid;align-content:end;background:linear-gradient(140deg,#efe8ff,#e9f7ff 45%,#fff2c6);color:var(--ink);z-index:1}
+    .preview-fallback{position:absolute;inset:0;padding:30px;display:grid;align-content:end;background:radial-gradient(circle at 12% 15%,rgba(105,40,251,.14),transparent 30%),radial-gradient(circle at 82% 18%,rgba(255,216,77,.28),transparent 32%),linear-gradient(140deg,#fff,#eef7ff 46%,#fff5ce);color:var(--ink);z-index:1}
+    .preview-fallback::before{content:"WAKILI WA TECH · LIVE PROJECT";position:absolute;top:20px;left:24px;font-size:8px;letter-spacing:.15em;color:#6928fb;font-weight:800}
+    .preview-fallback::after{content:"↗";position:absolute;right:22px;bottom:22px;width:34px;height:34px;border-radius:50%;border:1px solid #d8d4cc;display:grid;place-items:center;font-size:13px;background:#fff}
     .preview-fallback strong{font-size:clamp(24px,3vw,40px);line-height:1;letter-spacing:-.05em;max-width:10ch}
     .preview-fallback small{margin-top:10px;font-size:10px;color:var(--muted)}
-    .shot{position:relative;z-index:2}.preview.failed .shot{display:none}
+    .shot{position:relative;z-index:2;width:100%;height:100%;object-fit:cover;object-position:center;display:block;background:#fff}.shot.contain{object-fit:contain;padding:28px;background:#fff}.preview.failed .shot{display:none}.preview.failed .preview-fallback{z-index:3}
     .card-copy{padding:20px 20px 18px;display:flex;align-items:flex-start;justify-content:space-between;gap:18px}
     .card-copy h3{margin:0 0 7px;font-size:21px;line-height:1.12;letter-spacing:-.035em}.card-copy p{margin:0;color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.1em}
     .open{flex:0 0 auto;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--line);font-size:15px;transition:.2s}.project-card:hover .open{background:var(--purple);border-color:var(--purple);color:#fff;transform:rotate(-8deg)}
@@ -146,7 +149,7 @@
 
   <section id="featured" class="featured">
     <div class="shell">
-      <div class="section-title"><div class="eyebrow">01 / Featured work</div><div><h2>Selected projects.</h2><p>The strongest pieces get room to breathe. Every preview is a screenshot rather than an iframe, so protected sites still display correctly while the card links directly to the live production website.</p></div></div>
+      <div class="section-title"><div class="eyebrow">01 / Featured work</div><div><h2>Selected projects.</h2><p>The strongest pieces get room to breathe. Every preview now uses artwork or imagery served by the actual project itself — no iframes and no third-party screenshot generator. Every card still opens the live production website.</p></div></div>
       <div class="featured-grid" id="featuredGrid"></div>
     </div>
   </section>
@@ -181,58 +184,58 @@
 
 <script>
 const projects=[
-{title:"Forland & Company Advocates",url:"https://forlandcompanyadvocates.co.ke",cat:"Kenya Legal",featured:true},
-{title:"Arende Oriri & Associates Advocates",url:"https://arende-oriri-advocates.vercel.app",cat:"Kenya Legal",featured:true},
-{title:"Nero & Partners",url:"https://nero-and-partners.vercel.app",cat:"Kenya Legal",featured:true},
-{title:"Victor Andande & Co. Advocates",url:"https://victor-andande-advocates.vercel.app",cat:"Kenya Legal",featured:true},
-{title:"Mwango Gichana Advocates",url:"https://mwango-gichana-advocates.vercel.app",cat:"Kenya Legal",featured:true},
-{title:"Bobderek Mayaka",url:"https://bobderek-mayaka.vercel.app",cat:"Kenya Legal",featured:true},
-{title:"Wakili wa Tech",url:"https://wakiliwatech.co.ke",cat:"Digital Product"},
-{title:"Kuria Muchoki Advocates",url:"https://kuria-muchoki-advocates.vercel.app",cat:"Kenya Legal"},
-{title:"Cecilia Mwaura Advocates",url:"https://cecilia-mwaura-advocates-eta.vercel.app",cat:"Kenya Legal"},
-{title:"A.W. Ndung'u Law Advocates",url:"https://aw-ndungu-law-advocates.vercel.app",cat:"Kenya Legal"},
-{title:"Alphonce Odhiambo Advocates",url:"https://alphonce-odhiambo-advocates.vercel.app",cat:"Kenya Legal"},
-{title:"Muriithi Kiragu Advocates",url:"https://muriithi-kiragu-advocates.vercel.app",cat:"Kenya Legal"},
-{title:"Ruth Rotich & Company Advocates",url:"https://ruth-rotich-company-advocates.vercel.app",cat:"Kenya Legal"},
-{title:"P.N. Kingoina & Associates Advocates",url:"https://pn-kingoina-associates-advocates.vercel.app",cat:"Kenya Legal"},
-{title:"Mohamed Gitahi & Company Advocates",url:"https://project-six-chi-52.vercel.app",cat:"Kenya Legal"},
-{title:"C.K. Ireri Associates",url:"https://cksite-two.vercel.app",cat:"Kenya Legal"},
-{title:"Susan Mute & Company Advocates",url:"https://susan-mute-company-advocates.vercel.app",cat:"Kenya Legal"},
-{title:"Nishi Pandit Advocates",url:"https://nishi-pandit-advocates.vercel.app",cat:"Kenya Legal"},
-{title:"Okongo Wandago Advocates",url:"https://okongo-wandago-advocates.vercel.app",cat:"Kenya Legal"},
-{title:"Peres Odoyo Advocates",url:"https://peres-odoyo-advocates.vercel.app",cat:"Kenya Legal"},
-{title:"Bruce Odeny Advocates",url:"https://bruce-odeny-advocates.vercel.app",cat:"Kenya Legal"},
-{title:"Onsongo & Company Advocates",url:"https://onsongo-company-advocates.vercel.app",cat:"Kenya Legal"},
-{title:"Kipkirui Kemboi Advocates",url:"https://kipkirui-kemboi-advocates.vercel.app",cat:"Kenya Legal"},
-{title:"A.J. Opondo Modern Website",url:"https://aj-opondo-modern-website.vercel.app",cat:"Kenya Legal"},
-{title:"A.J. Opondo Company Advocates",url:"https://aj-opondo-company-advocates.vercel.app",cat:"Kenya Legal"},
-{title:"Bobderek Mayaka — Arende Template",url:"https://bobderek-mayaka-arende-template.vercel.app",cat:"Kenya Legal"},
-{title:"Bobderek Mayaka Legal",url:"https://bobderek-mayaka-legal.vercel.app",cat:"Kenya Legal"},
-{title:"P.N. Kingoina CK Template",url:"https://pn-kingoina-ck-template.vercel.app",cat:"Kenya Legal"},
-{title:"Gallagher & Co Leeds",url:"https://gallagher-and-co-leeds-v1.vercel.app",cat:"UK Legal"},
-{title:"Dipak Acharya Solicitors",url:"https://dipak-acharya-solicitors-v1.vercel.app",cat:"UK Legal"},
-{title:"Horsforth Law Practice",url:"https://horsforth-law-practice-v1.vercel.app",cat:"UK Legal"},
-{title:"YourLegal Leicester — V3",url:"https://yourlegal-leicester-v3-aligned.vercel.app",cat:"UK Legal"},
-{title:"YourLegal Leicester — V2",url:"https://yourlegal-leicester-v2-editorial.vercel.app",cat:"UK Legal"},
-{title:"YourLegal Leicester — Demo",url:"https://yourlegal-leicester-demo.vercel.app",cat:"UK Legal"},
-{title:"Sure Law Solicitors — V8",url:"https://sure-law-solicitors-v8-clean-hero.vercel.app",cat:"UK Legal"},
-{title:"Sure Law Solicitors — V7",url:"https://sure-law-solicitors-v7-hero-lowered.vercel.app",cat:"UK Legal"},
-{title:"Sure Law Solicitors — V6",url:"https://sure-law-solicitors-v6-hero-crop.vercel.app",cat:"UK Legal"},
-{title:"Sure Law Solicitors — V5",url:"https://sure-law-solicitors-v5-final.vercel.app",cat:"UK Legal"},
-{title:"Sure Law Solicitors — Demo",url:"https://sure-law-solicitors-demo.vercel.app",cat:"UK Legal"},
-{title:"Sure Law Solicitors — V2 Premium",url:"https://sure-law-solicitors-v2-premium.vercel.app",cat:"UK Legal"},
-{title:"Sure Law Solicitors — V3 Image Led",url:"https://sure-law-solicitors-v3-image-led.vercel.app",cat:"UK Legal"},
-{title:"Sure Law Solicitors — V4 Hero Mobile",url:"https://sure-law-solicitors-v4-hero-mobile.vercel.app",cat:"UK Legal"},
-{title:"Mitchy Kitchen",url:"https://mitchy-kitchen.vercel.app",cat:"Brand Website"},
-{title:"Bumptrack",url:"https://bumptrack.vercel.app",cat:"Digital Product"},
-{title:"Upwork Job Intelligence",url:"https://upwork-job-intelligence.vercel.app",cat:"Digital Product"}
+{title:"Forland & Company Advocates",url:"https://forlandcompanyadvocates.co.ke",cat:"Kenya Legal",preview:"https://forlandcompanyadvocates.co.ke/assets/media/hero-poster-nairobi.jpg",mode:"cover",featured:true},
+{title:"Arende Oriri & Associates Advocates",url:"https://arende-oriri-advocates.vercel.app",cat:"Kenya Legal",preview:"https://arende-oriri-advocates.vercel.app/images/arende-oriri-social-card.png",mode:"cover",featured:true},
+{title:"Nero & Partners",url:"https://nero-and-partners.vercel.app",cat:"Kenya Legal",preview:"https://nero-and-partners.vercel.app/images/nero-social-card.png",mode:"cover",featured:true},
+{title:"Victor Andande & Co. Advocates",url:"https://victor-andande-advocates.vercel.app",cat:"Kenya Legal",preview:"https://victor-andande-advocates.vercel.app/images/victor-andande-social-card.webp",mode:"cover",featured:true},
+{title:"Mwango Gichana Advocates",url:"https://mwango-gichana-advocates.vercel.app",cat:"Kenya Legal",preview:"https://mwango-gichana-advocates.vercel.app/images/mwango-gichana-social-card.webp",mode:"cover",featured:true},
+{title:"Bobderek Mayaka",url:"https://bobderek-mayaka.vercel.app",cat:"Kenya Legal",preview:"https://bobderek-mayaka.vercel.app/images/bobderek-mayaka-social-card.jpg",mode:"cover",featured:true},
+{title:"Wakili wa Tech",url:"https://wakiliwatech.co.ke",cat:"Digital Product",preview:"https://wakiliwatech.co.ke/og-preview.jpg",mode:"cover"},
+{title:"Kuria Muchoki Advocates",url:"https://kuria-muchoki-advocates.vercel.app",cat:"Kenya Legal",preview:"https://kuria-muchoki-advocates.vercel.app/assets/images/social-card.png",mode:"cover"},
+{title:"Cecilia Mwaura Advocates",url:"https://cecilia-mwaura-advocates-eta.vercel.app",cat:"Kenya Legal",preview:"https://cecilia-mwaura-advocates.vercel.app/images/cecilia-mwaura-social-card.webp",mode:"cover"},
+{title:"A.W. Ndung'u Law Advocates",url:"https://aw-ndungu-law-advocates.vercel.app",cat:"Kenya Legal",preview:"https://aw-ndungu-law-advocates.vercel.app/assets/images/og-image.jpg",mode:"cover"},
+{title:"Alphonce Odhiambo Advocates",url:"https://alphonce-odhiambo-advocates.vercel.app",cat:"Kenya Legal",preview:"https://alphonce-odhiambo-advocates.vercel.app/assets/images/logo-gold.png",mode:"contain"},
+{title:"Muriithi Kiragu Advocates",url:"https://muriithi-kiragu-advocates.vercel.app",cat:"Kenya Legal",preview:"https://muriithi-kiragu-advocates.vercel.app/assets/images/og-image.jpg",mode:"cover"},
+{title:"Ruth Rotich & Company Advocates",url:"https://ruth-rotich-company-advocates.vercel.app",cat:"Kenya Legal",preview:"https://ruth-rotich-company-advocates.vercel.app/images/ruth-rotich-logo.webp",mode:"contain"},
+{title:"P.N. Kingoina & Associates Advocates",url:"https://pn-kingoina-associates-advocates.vercel.app",cat:"Kenya Legal",preview:"https://pn-kingoina-associates-advocates.vercel.app/assets/media/logo.png",mode:"contain"},
+{title:"Mohamed Gitahi & Company Advocates",url:"https://project-six-chi-52.vercel.app",cat:"Kenya Legal",preview:"https://mohamed-gitahi-company-advocates.vercel.app/images/mohamed-gitahi-social-card.webp",mode:"cover"},
+{title:"C.K. Ireri Associates",url:"https://cksite-two.vercel.app",cat:"Kenya Legal",preview:"https://ck-ireri-associates.vercel.app/images/ck-ireri-social-card.webp",mode:"cover"},
+{title:"Susan Mute & Company Advocates",url:"https://susan-mute-company-advocates.vercel.app",cat:"Kenya Legal",preview:"https://susan-mute-company-advocates.vercel.app/assets/icons/social-card.png",mode:"cover"},
+{title:"Nishi Pandit Advocates",url:"https://nishi-pandit-advocates.vercel.app",cat:"Kenya Legal",preview:"https://nishi-pandit-advocates.vercel.app/assets/hero.jpg",mode:"cover"},
+{title:"Okongo Wandago Advocates",url:"https://okongo-wandago-advocates.vercel.app",cat:"Kenya Legal",preview:"https://okongo-wandago-advocates.vercel.app/assets/hero.jpg",mode:"cover"},
+{title:"Peres Odoyo Advocates",url:"https://peres-odoyo-advocates.vercel.app",cat:"Kenya Legal",preview:"https://peres-odoyo-advocates.vercel.app/assets/hero.jpg",mode:"cover"},
+{title:"Bruce Odeny Advocates",url:"https://bruce-odeny-advocates.vercel.app",cat:"Kenya Legal",preview:"https://bruce-odeny-advocates.vercel.app/assets/hero.jpg",mode:"cover"},
+{title:"Onsongo & Company Advocates",url:"https://onsongo-company-advocates.vercel.app",cat:"Kenya Legal",preview:"https://onsongo-company-advocates.vercel.app/assets/hero.jpg",mode:"cover"},
+{title:"Kipkirui Kemboi Advocates",url:"https://kipkirui-kemboi-advocates.vercel.app",cat:"Kenya Legal",preview:"",mode:"cover"},
+{title:"A.J. Opondo Modern Website",url:"https://aj-opondo-modern-website.vercel.app",cat:"Kenya Legal",preview:"https://aj-opondo-modern-website.vercel.app/assets/images/in-practice-82.jpg",mode:"cover"},
+{title:"A.J. Opondo Company Advocates",url:"https://aj-opondo-company-advocates.vercel.app",cat:"Kenya Legal",preview:"https://fi-hatchbox-production-uploads.s3.amazonaws.com/posts/1686177006_pexels-antony-trivet-13348192.jpg",mode:"cover"},
+{title:"Bobderek Mayaka \u2014 Arende Template",url:"https://bobderek-mayaka-arende-template.vercel.app",cat:"Kenya Legal",preview:"https://bobderek-mayaka-arende-template.vercel.app/images/og-card.jpg",mode:"cover"},
+{title:"Bobderek Mayaka Legal",url:"https://bobderek-mayaka-legal.vercel.app",cat:"Kenya Legal",preview:"https://bobderek-mayaka-legal.vercel.app/images/og-card.jpg",mode:"cover"},
+{title:"P.N. Kingoina CK Template",url:"https://pn-kingoina-ck-template.vercel.app",cat:"Kenya Legal",preview:"https://pn-kingoina-associates-advocates.vercel.app/images/pn-kingoina-logo.webp",mode:"contain"},
+{title:"Gallagher & Co Leeds",url:"https://gallagher-and-co-leeds-v1.vercel.app",cat:"UK Legal",preview:"https://images.pexels.com/photos/10375957/pexels-photo-10375957.jpeg?auto=compress&cs=tinysrgb&w=1600",mode:"cover"},
+{title:"Dipak Acharya Solicitors",url:"https://dipak-acharya-solicitors-v1.vercel.app",cat:"UK Legal",preview:"https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1600&q=84",mode:"cover"},
+{title:"Horsforth Law Practice",url:"https://horsforth-law-practice-v1.vercel.app",cat:"UK Legal",preview:"https://images.pexels.com/photos/7979463/pexels-photo-7979463.jpeg?auto=compress&cs=tinysrgb&w=1600",mode:"cover"},
+{title:"YourLegal Leicester \u2014 V3",url:"https://yourlegal-leicester-v3-aligned.vercel.app",cat:"UK Legal",preview:"https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1600&q=82",mode:"cover"},
+{title:"YourLegal Leicester \u2014 V2",url:"https://yourlegal-leicester-v2-editorial.vercel.app",cat:"UK Legal",preview:"https://images.unsplash.com/photo-1676250742396-65a9a7de03df?auto=format&fit=crop&w=1600&q=84",mode:"cover"},
+{title:"YourLegal Leicester \u2014 Demo",url:"https://yourlegal-leicester-demo.vercel.app",cat:"UK Legal",preview:"https://images.unsplash.com/photo-1562564055-71e051d33c19?auto=format&fit=crop&w=1600&q=86",mode:"cover"},
+{title:"Sure Law Solicitors \u2014 V8",url:"https://sure-law-solicitors-v8-clean-hero.vercel.app",cat:"UK Legal",preview:"https://images.pexels.com/photos/7295831/pexels-photo-7295831.jpeg?auto=compress&cs=tinysrgb&w=1600",mode:"cover"},
+{title:"Sure Law Solicitors \u2014 V7",url:"https://sure-law-solicitors-v7-hero-lowered.vercel.app",cat:"UK Legal",preview:"https://images.pexels.com/photos/6623806/pexels-photo-6623806.jpeg?auto=compress&cs=tinysrgb&w=1600",mode:"cover"},
+{title:"Sure Law Solicitors \u2014 V6",url:"https://sure-law-solicitors-v6-hero-crop.vercel.app",cat:"UK Legal",preview:"https://images.pexels.com/photos/8205065/pexels-photo-8205065.jpeg?auto=compress&cs=tinysrgb&w=1600",mode:"cover"},
+{title:"Sure Law Solicitors \u2014 V5",url:"https://sure-law-solicitors-v5-final.vercel.app",cat:"UK Legal",preview:"https://images.pexels.com/photos/7302866/pexels-photo-7302866.jpeg?auto=compress&cs=tinysrgb&w=1600",mode:"cover"},
+{title:"Sure Law Solicitors \u2014 Demo",url:"https://sure-law-solicitors-demo.vercel.app",cat:"UK Legal",preview:"https://images.pexels.com/photos/6393150/pexels-photo-6393150.jpeg?auto=compress&cs=tinysrgb&w=1600",mode:"cover"},
+{title:"Sure Law Solicitors \u2014 V2 Premium",url:"https://sure-law-solicitors-v2-premium.vercel.app",cat:"UK Legal",preview:"https://images.unsplash.com/photo-1789698873399-1f68428bc9fe?auto=format&fit=crop&fm=jpg&q=82&w=1600",mode:"cover"},
+{title:"Sure Law Solicitors \u2014 V3 Image Led",url:"https://sure-law-solicitors-v3-image-led.vercel.app",cat:"UK Legal",preview:"https://images.unsplash.com/photo-1675649957429-8e867e45f800?auto=format&fit=crop&fm=jpg&q=82&w=1600",mode:"cover"},
+{title:"Sure Law Solicitors \u2014 V4 Hero Mobile",url:"https://sure-law-solicitors-v4-hero-mobile.vercel.app",cat:"UK Legal",preview:"https://images.pexels.com/photos/6623806/pexels-photo-6623806.jpeg?auto=compress&cs=tinysrgb&w=1600",mode:"cover"},
+{title:"Mitchy Kitchen",url:"https://mitchy-kitchen.vercel.app",cat:"Brand Website",preview:"https://mitchy-kitchen.vercel.app/brand/mitchy-kitchen-logo.png",mode:"contain"},
+{title:"Bumptrack",url:"https://bumptrack.vercel.app",cat:"Digital Product",preview:"",mode:"cover"},
+{title:"Upwork Job Intelligence",url:"https://upwork-job-intelligence.vercel.app",cat:"Digital Product",preview:"",mode:"cover"},
 ];
 const domain=u=>new URL(u).hostname.replace(/^www\./,'');
-const screenshot=u=>`https://s.wordpress.com/mshots/v1/${encodeURIComponent(u)}?w=1200`;
 function card(p){
  const a=document.createElement('a');a.className='project-card';a.href=p.url;a.target='_blank';a.rel='noopener';
- a.innerHTML=`<div class="preview"><div class="browserbar"><i></i><i></i><i></i><span class="domain">${domain(p.url)}</span></div><div class="shot-wrap"><div class="preview-fallback"><strong>${p.title}</strong><small>${domain(p.url)}</small></div><img class="shot" src="${screenshot(p.url)}" alt="Preview of ${p.title}" loading="lazy" referrerpolicy="no-referrer"></div></div><div class="card-copy"><div><h3>${p.title}</h3><p>${p.cat} · Live project</p></div><span class="open">↗</span></div>`;
- const img=a.querySelector('.shot');img.addEventListener('error',()=>a.querySelector('.preview').classList.add('failed'));
+ const imageHtml=p.preview?`<img class="shot ${p.mode==='contain'?'contain':''}" src="${p.preview}" alt="Preview artwork from ${p.title}" loading="lazy" referrerpolicy="no-referrer" decoding="async">`:'';
+ a.innerHTML=`<div class="preview ${p.preview?'':'failed'}"><div class="browserbar"><i></i><i></i><i></i><span class="domain">${domain(p.url)}</span></div><div class="shot-wrap"><div class="preview-fallback"><strong>${p.title}</strong><small>${domain(p.url)}</small></div>${imageHtml}</div></div><div class="card-copy"><div><h3>${p.title}</h3><p>${p.cat} · Live project</p></div><span class="open">↗</span></div>`;
+ const img=a.querySelector('.shot');if(img)img.addEventListener('error',()=>a.querySelector('.preview').classList.add('failed'));
  return a;
 }
 const featuredGrid=document.getElementById('featuredGrid');projects.filter(p=>p.featured).forEach(p=>featuredGrid.appendChild(card(p)));
