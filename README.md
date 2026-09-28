@@ -1,20 +1,12 @@
-# Wakili wa Tech — World-class Portfolio
+# Wakili wa Tech Portfolio — Light Brand Edition
 
-A production-ready static portfolio built around 45 verified live projects.
+Rebuilt to match the production Wakili wa Tech design language:
+- Manrope typography
+- warm white / cream surfaces
+- black primary UI
+- purple #6928fb
+- yellow highlight #ffd84d
+- blue/cyan/green spectrum accents
+- screenshot-based project previews instead of iframes
 
-## Highlights
-- Dark editorial art direction
-- Oversized typographic hero
-- Live project previews using lazy-loaded iframes
-- Featured project spotlight carousel
-- Filterable portfolio grid
-- Searchable 45-project archive
-- Fully responsive mobile layout
-- Reduced-motion accessibility support
-- Ready for Vercel static deployment
-
-## Deploy on Vercel
-Upload the folder as a static Vercel project, or deploy from a Git repository. No build step is required.
-
-## Important
-The project previews are live iframes. A website that later adds a restrictive `X-Frame-Options` or `Content-Security-Policy frame-ancestors` header may stop rendering inside its preview card; the project link will still work normally.
+Project cards use WordPress mShots to render public website thumbnails. If a thumbnail service fails, the card falls back to a branded project placeholder and the live-site link still works.
